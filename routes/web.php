@@ -7,6 +7,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     //return view('welcome'); - Original (usando Blade)
+    sleep(2);
     return Inertia::render('Home'); //mesmo que return Inertia::render('home')
 });
 
