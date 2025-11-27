@@ -44,7 +44,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        Return inertia('Show', ['post' => $post]);
     }
 
     /**
@@ -68,6 +68,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $post->delete();
         //
     }
 }
