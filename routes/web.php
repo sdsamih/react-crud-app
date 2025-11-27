@@ -6,13 +6,9 @@ use Inertia\Inertia;
 
 Route::get('/', [PostController::class, 'index']);
 
-Route::get('/teste', function () {
-    return Inertia::render('PageTeste', [
-        'title' => 'Página de Teste',
-    ]);
-});
+Route::get('/posts/create', [PostController::class, 'create']);
 
-Route::resource('posts',PostController::class)->except('index');
+Route::resource('posts',PostController::class)->except(['index','create']);
 
 
 

@@ -1,15 +1,22 @@
 import NavLinkLayout from "../Layouts/NavLinkLayout";
 import { Link } from "@inertiajs/react";
 
-function Home(){
-    return(
-    <>
-      <div className="bg-red-500 text-white p-6 text-3xl">
-        Home 👍
-      </div> 
-      <Link preserveScroll className="block mt-[500px] mb-[100px] text-xl " href="/"> Atualizar a pagina</Link>
-    </>
-    )
+function Home({ posts }) {
+  return (
+    <div className="bg-blue-500 text-white p-6 text-3xl flex flex-col items-center w-full min-h-screen">
+      <ul>
+        {posts.map(post => (
+          <li key={post.id}>
+            <div className="m-5 bg-purple-600 rounded-xl p-10 w-200" >
+                <p className="font-normal">
+                  {post.text}
+                </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 
 

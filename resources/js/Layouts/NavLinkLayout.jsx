@@ -6,7 +6,7 @@ export default function NavLinkLayout(props) {
             <header>
                 <nav className="flex gap-4">
                     <Link className="bg-green-300 px-4 py-2 rounded" href="/"     >Home</Link>
-                    <Link className="bg-green-300 px-4 py-2 rounded" href="/teste">Teste</Link>
+                    <Link className="bg-green-300 px-4 py-2 rounded" href="/posts/create">Criar</Link>
                 </nav>
             </header>
         

@@ -13,7 +13,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return inertia('Home');
+        $posts = Post::latest()->get();
+        return inertia('Home', ['posts' => $posts]);
     }
 
     /**
@@ -21,7 +22,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Create');
     }
 
     /**
@@ -29,7 +30,13 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $data = $request ->validate([
+            'text' => 'required|string|max:255',
+        ]);
+
+        Post::create($data);
+
+        return redirect('/');
     }
 
     /**
