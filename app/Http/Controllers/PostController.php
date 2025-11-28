@@ -52,6 +52,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        return inertia('Edit', ['post' => $post]);
         //
     }
 
@@ -60,7 +61,13 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $newData = $request ->validate([
+            'text' => 'required|string|max:255',
+        ]);
+
+        $post->update($newData);
+
+        return redirect('/')->with('message','Post atualizado');
     }
 
     /**

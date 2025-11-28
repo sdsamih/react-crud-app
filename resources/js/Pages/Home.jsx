@@ -41,6 +41,10 @@ function Home({ posts }) {
                     <button className="cursor-pointer bg-blue-400 p-2 rounded-xl shadow-lg/30 w-auto">Visualizar</button>
                   </Link>
 
+                  <Link href={`/posts/${post.id}/edit`}>
+                    <button className="cursor-pointer bg-green-400 p-2 rounded-xl shadow-lg/30 w-auto">Editar</button>
+                  </Link>
+
                   <form onSubmit={(e) => submit(e, post.id)}>
                     <button className="cursor-pointer bg-red-500 p-2 rounded-xl shadow-lg/30 w-auto">Apagar</button>
                   </form>

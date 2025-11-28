@@ -1,14 +1,16 @@
 import NavLinkLayout from "../Layouts/NavLinkLayout";
 import { useForm } from "@inertiajs/react"
 
-function Create() {
-  const { data, setData, post, processing, errors } = useForm({
-    text: "" //corpo da requisição com valor inicial
+function Edit({post}) {
+  const { data, setData, put, processing, errors } = useForm({
+    body: post.body //corpo da requisição com valor inicial
   });
+
+  const postId = post.id
 
   function submit(e) {
     e.preventDefault();
-    post("/posts");
+    put(`/posts/${postId}`);
   }
 
   return (
@@ -24,12 +26,10 @@ function Create() {
             value={data.text}
             onChange={e => setData("text", e.target.value)}
             >
-
-
             </textarea>
 
             <button className="cursor-pointer bg-blue-500 p-2 rounded-xl shadow-lg/30" >
-              Criar publicação
+              Editar publicação Nº XX
             </button>
           </form>
         </div>
@@ -38,6 +38,6 @@ function Create() {
   )
 }
 
-Create.layout = page => <NavLinkLayout>{page}</NavLinkLayout>
+Edit.layout = page => <NavLinkLayout>{page}</NavLinkLayout>
 
-export default Create;
+export default Edit;
