@@ -69,6 +69,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
+        redirect ('/')->with('message','Post excluido');
         //
     }
 }
